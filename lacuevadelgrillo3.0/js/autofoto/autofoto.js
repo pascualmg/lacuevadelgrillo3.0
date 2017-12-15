@@ -6,7 +6,7 @@
         success: function (data) {
 
             $.each(data, function(i,filename) {
-                $('#autofoto').prepend('<img id="' + filename + '" src="'+ filename +'"><br>');
+                $('#autofoto').prepend('<img style="align-content: center" id="' + filename + '" src="'+ filename +'"><br>');
             });
         }
     });
