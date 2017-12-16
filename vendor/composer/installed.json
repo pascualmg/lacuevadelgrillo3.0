@@ -1,0 +1,38 @@
+[
+    {
+        "name": "pascualmg/apigator",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/pascualmg/ApiGatorBundle.git",
+            "reference": "3a4bb05fb31807bd1abaeadb6c493bb1f9628f97"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/pascualmg/ApiGatorBundle/zipball/3a4bb05fb31807bd1abaeadb6c493bb1f9628f97",
+            "reference": "3a4bb05fb31807bd1abaeadb6c493bb1f9628f97",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9"
+        },
+        "time": "2017-12-16T10:52:55+00:00",
+        "type": "project",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "": "./"
+            },
+            "classmap": []
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "authors": [
+            {
+                "name": "Pascual Muñoz Galián",
+                "email": "pascual.munoz@pccomponentes.com"
+            }
+        ],
+        "description": "Symfony Service Request/Response API REST CURL client"
+    }
+]

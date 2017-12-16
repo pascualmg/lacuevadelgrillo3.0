@@ -1,0 +1,54 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "6823e3ce78b705b8ed4771399a335b38",
+    "packages": [
+        {
+            "name": "pascualmg/apigator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pascualmg/ApiGatorBundle.git",
+                "reference": "3a4bb05fb31807bd1abaeadb6c493bb1f9628f97"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pascualmg/ApiGatorBundle/zipball/3a4bb05fb31807bd1abaeadb6c493bb1f9628f97",
+                "reference": "3a4bb05fb31807bd1abaeadb6c493bb1f9628f97",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "": "./"
+                },
+                "classmap": []
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Pascual Muñoz Galián",
+                    "email": "pascual.munoz@pccomponentes.com"
+                }
+            ],
+            "description": "Symfony Service Request/Response API REST CURL client",
+            "time": "2017-12-16 10:52:55"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "pascualmg/apigator": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
