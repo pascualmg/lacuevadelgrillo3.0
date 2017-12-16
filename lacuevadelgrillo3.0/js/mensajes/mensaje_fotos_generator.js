@@ -1,17 +1,28 @@
 "use strict";
 
-var dateObj = new Date();
-var month = dateObj.getUTCMonth() + 1; //months from 1-12
-var day = dateObj.getUTCDate();
-var year = dateObj.getUTCFullYear();
+var dateDTO = {
+    day:null,
+    month:null,
+    year:null
+};
 
-var terminandoAnio = (2017 == year)?"últimas":"primeras";
+function loadFromDateObject(dateDTO) {
+    var dateObj = new Date();
+
+    dateDTO.day= dateObj.getUTCDate();
+    dateDTO.month = dateObj.getUTCMonth() + 1; //months from 1-12
+    dateDTO.year= dateObj.getUTCFullYear();
+};
+
+loadFromDateObject(dateDTO);
+
+var ultimasOrPrimeras = (2017 == dateDTO.year) ? "últimas" : "primeras";
 
 $('#mensaje_fotos').prepend(
     '<h2>Aquí están las ' +
-    terminandoAnio +
+    ultimasOrPrimeras +
     ' fotos de ' +
-    year +
+    dateDTO.year +
     ' tras las últimas reformas , esperamos que os gusten!' +
     '</h2>'
 );
