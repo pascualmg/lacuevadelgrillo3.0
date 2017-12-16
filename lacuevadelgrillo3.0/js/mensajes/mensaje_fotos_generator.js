@@ -1,5 +1,11 @@
 "use strict";
 
+class fechaActual{
+    constructor()
+    {
+
+    }
+};
 var dateDTO = {
     day:null,
     month:null,

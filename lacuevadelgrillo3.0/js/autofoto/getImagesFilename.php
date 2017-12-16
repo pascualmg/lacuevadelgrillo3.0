@@ -5,6 +5,8 @@
  * Date: 15/12/2017
  * Time: 19:15
  */
+
+
 $relativeDir = '/fotos/';
 function cropFrom($from, $str)
 {
