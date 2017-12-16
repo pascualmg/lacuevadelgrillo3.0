@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pascualmg/ApiGatorBundle.git",
-                "reference": "3a4bb05fb31807bd1abaeadb6c493bb1f9628f97"
+                "reference": "0df5119957082b36090fd2b4c53e92a7386cfc88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pascualmg/ApiGatorBundle/zipball/3a4bb05fb31807bd1abaeadb6c493bb1f9628f97",
-                "reference": "3a4bb05fb31807bd1abaeadb6c493bb1f9628f97",
+                "url": "https://api.github.com/repos/pascualmg/ApiGatorBundle/zipball/0df5119957082b36090fd2b4c53e92a7386cfc88",
+                "reference": "0df5119957082b36090fd2b4c53e92a7386cfc88",
                 "shasum": ""
             },
             "require": {
@@ -38,7 +38,7 @@
                 }
             ],
             "description": "Symfony Service Request/Response API REST CURL client",
-            "time": "2017-12-16 10:52:55"
+            "time": "2017-12-16 11:20:46"
         }
     ],
     "packages-dev": [],
