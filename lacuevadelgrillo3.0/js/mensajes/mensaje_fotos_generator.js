@@ -29,6 +29,6 @@ $('#mensaje_fotos').prepend(
     ultimasOrPrimeras +
     ' fotos de ' +
     dateDTO.year +
-    ' tras las últimas reformas , esperamos que os gusten!' +
+    ' tras las recientes reformas , esperamos que os gusten!' +
     '</h2>'
 );
