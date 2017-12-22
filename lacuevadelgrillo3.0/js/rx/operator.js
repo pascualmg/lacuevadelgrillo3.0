@@ -17,10 +17,23 @@ bar$ = foo$
 
 
 //take , devuelve los X primeros numeros de la secuencia.
-bar$ = foo$.first(a => console.log(a));
+// bar$ = foo$.first(a => console.log(a));
+
+
+
+//Operador disctinct().
+
+bar$ = Rx.Observable
+    .of('a','b','c','d','e')
+    .distinctUntilChanged();
+
+
 
 const subs = bar$.subscribe(
  value = console.log(`next{value}`),
     err = console.log(`err{value}`),
     end = console.log(`end{end}`)
 );
+
+
+
