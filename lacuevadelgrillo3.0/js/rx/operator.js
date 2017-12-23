@@ -57,6 +57,38 @@ baz$ = Rx.Observable.zip(foo$, bar$)
     .do(a => console.log(a))
 ;
 
+//merge([scheduler]), ...args)
+// mezcla 2 o más se cuencias como un or en el sentido de que si una no emite y la otra si emite un valor.
+
+//se puede utiliaar tanto foo.merge(bar) o el preferido Observable.merge(foo , barr)
+// {...1...3....5...7..}
+
+mergeSecuence$ =  Rx.Observable
+    .merge(foo$,bar$)
+    .do(a => console.log(a));
+
+
+//CobineLatest(...args, [resultSelector]
+//Mezcla los ultimos valores emitidos por dos o más secuencias.permite rfalizar una operación con los valorees (resultSelector),
+// si nos se pasa la operacion, si no se le pasa operacion devuelve un array con los valores.
+
+foo$.combineLatest(foo$,bar$);
+Observable.combineLatest(foo$,bar$, (x,y) => x * y);
+
+
+
+foo$ = Rx.Observable
+    .interval(500)
+    .zip(Rx.Observable.of('h','o','l','a','h'), (_,value) => value);
+
+bar$ = Rx.Observable
+    .interval(4500)
+    .zip(Rx.Observable.of(1,0,1,0,1), (_,value) => value);
+
+bar$ = foo$.withLatestFrom(
+ bar$,
+    (letter, toUP)
+);
 
 const observerA = bar$.subscribe(
  value => console.log(`next ${value}`),
@@ -65,4 +97,4 @@ const observerA = bar$.subscribe(
 );
 
 
-
+baz.subscribe(observerA);
