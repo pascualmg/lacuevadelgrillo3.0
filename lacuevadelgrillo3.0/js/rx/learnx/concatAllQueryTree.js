@@ -17,7 +17,7 @@ function concatAllQyeryTree() {
                         "boxart": "http://cdn-0.nflximg.com/images/2891/BadBoys.jpg",
                         "uri": "http://api.netflix.com/catalog/titles/movies/70111470",
                         "rating": 5.0,
-                        "bookmark": [{ id: 432534, time: 65876586 }]
+                        "bookmark": [{id: 432534, time: 65876586}]
                     }
                 ]
             },
@@ -38,7 +38,7 @@ function concatAllQyeryTree() {
                         "boxart": "http://cdn-0.nflximg.com/images/2891/Fracture.jpg",
                         "uri": "http://api.netflix.com/catalog/titles/movies/70111470",
                         "rating": 5.0,
-                        "bookmark": [{ id: 432534, time: 65876586 }]
+                        "bookmark": [{id: 432534, time: 65876586}]
                     }
                 ]
             }
@@ -50,7 +50,15 @@ function concatAllQyeryTree() {
     // video ids.
     // ------------   INSERT CODE HERE!  -----------------------------------
 
-    movieLists.forEach(function(movieListsItem){console.log(movieListsItem)});
+    movieLists.forEach(
+        function (movieListsItem) {
+            movieListsItem.videos.forEach(
+                function(video){
+                   allVideoIdsInMovieLists.push(video.id);
+                }
+            )
+        }
+    );
     return allVideoIdsInMovieLists;
 
 }
