@@ -1,9 +1,31 @@
+
+
+
+/*
+concatAll is a very simple function, so much so that it may not be obvious yet how it can be combined with map() to query a tree. Let's try an example...
+Exercise 11: Use map() and concatAll() to project and flatten the movieLists into an array of video ids
+Hint: use two nested calls to map() and one call to concatAll().
+*/
 function ejercicio11() {
-    Array.prototype.concatAll = function (item)
-    {
-        var result = [];
-        result.push(item);
+
+    Array.prototype.concatAll = function () {
+        var results = [];
+        this.forEach(function (subArray) {
+            // ------------ INSERT CODE HERE! ----------------------------
+            // Add all the items in each subArray to the results array.
+            // ------------ INSERT CODE HERE! ----------------------------
+            subArray.forEach(
+                function (item) {
+                    results.push(item);
+                }
+            );
+        });
+
+        return results;
     };
+
+    console.log('sobreescrita la contactAll de Array ', Array.prototype.concatAll);
+
 
     var movieLists = [
         {
@@ -50,11 +72,16 @@ function ejercicio11() {
         }
     ];
 
-    return movieLists.map(function (movieList) {
-        return movieList.videos.map(function (video) {
-            return video.id;
-        });
-    }).concatAll();
+    return movieLists
+        .map(function (item) {
+            return item.videos.map(
+                function (video) {
+                    return video.id;
+                }
+            );
+        })
+        .concatAll()
+        ;
 };
 
 
