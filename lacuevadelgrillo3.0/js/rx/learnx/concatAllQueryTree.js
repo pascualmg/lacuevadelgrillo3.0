@@ -1,18 +1,9 @@
 function ejercicio11() {
-    Array.prototype.concatAll = function ()
+    Array.prototype.concatAll = function (item)
     {
         var result = [];
-
-        this.forEach(
-           function(item){
-               item.forEach(
-                  function (subItem) {
-                     result.push(subItem.id);
-                  }
-               )
-           }
-        );
-    }
+        result.push(item);
+    };
 
     var movieLists = [
         {
@@ -60,8 +51,6 @@ function ejercicio11() {
     ];
 
     return movieLists.map(function (movieList) {
-        console.log(movieList);
-        console.log(movieList.videos);
         return movieList.videos.map(function (video) {
             return video.id;
         });
