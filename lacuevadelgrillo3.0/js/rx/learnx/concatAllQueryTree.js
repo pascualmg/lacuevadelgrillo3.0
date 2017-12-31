@@ -11,6 +11,21 @@ var itemInArray = movieLists[0];
 Furthermore, you're not allowed to use indexers in any of the remaining exercises unless you're implementing one of the five functions. There is a very good reason for this restriction, and that reason will eventually be explained. For now, you'll simply have to accept it on faith that this restriction serves a purpose. :-)
  */
 function ejercicio12() {
+    Array.prototype.concatAll = function () {
+        var results = [];
+        this.forEach(function (subArray) {
+            // ------------ INSERT CODE HERE! ----------------------------
+            // Add all the items in each subArray to the results array.
+            // ------------ INSERT CODE HERE! ----------------------------
+            subArray.videos.forEach(
+                function (item) {
+                    results.push(item);
+                }
+            );
+        });
+
+        return results;
+    };
     var movieLists = [
         {
             name: "Instant Queue",
@@ -79,7 +94,7 @@ function ejercicio12() {
     //	 {"id": 70111470,"title": "Die Hard","boxart":"http://cdn-0.nflximg.com/images/2891/DieHard150.jpg" }
     // ];
 
-    return movieLists // Complete this expression!
+    return movieLists.concatAll() // Complete this expression!
 
 }
 
