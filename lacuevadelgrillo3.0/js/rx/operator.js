@@ -168,7 +168,7 @@ baz$ = Rx.Observable.zip(foo$, bar$)
 
 mergeSecuence$ =  Rx.Observable
     .merge(foo$,bar$)
-    .do(a => console.log(a));
+    .do(a => console.log(a);
 
 
 //CobineLatest(...args, [resultSelector]
