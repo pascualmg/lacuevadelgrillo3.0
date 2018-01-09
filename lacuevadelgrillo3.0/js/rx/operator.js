@@ -1,10 +1,113 @@
 //Hay tipos de observables finitos e infinitos.
 
+function transformacion_scan(){
+    console.clear();
+// Transformaciones
+
+    const foo$ = Rx.Observable.of('h', 'e', 'l', 'l', 'o');
+    const bar$ = Rx.Observable.interval(600).take(5);
+    const baz$ = Rx.Observable.zip(foo$, bar$, (x, _) => x);
+    let qux$;
+
+//scan
+
+//...1....3....4....5.....6... | a menos que una secuencia temrine
+//no podriamos hacer un reduce.  scan seria un reducer temporal
+
+//scan(accumulator: (acc , curr, idx, obs)) => amy, [seed]: any
+//Acepta una funcion que usaqremos para transformar valores ,
+//teniendo el anteror (modificado normalmente) y el actual.
+
+
+//...{h}....{e}.....{l}....({o}|)
+
+//...{h}....{he}.....{hel}....
+
+    qux$ = baz$.scan( (acc, curr) => acc+curr );
+
+    observer = {
+        next(value) {console.log('next', value);},
+        error(err) {console.log('error', err);},
+        complete() {console.log('complete');},
+    }
+
+    qux$.subscribe(observer);
+}
 
 
 console.clear();
 console.log('cuenco power');
 
+/*
+SCAN  .
+Funciones de algo orden , las m''a importantes son la map filter y reduce
+map  , funcion de projeccion
+filterQ funcion de predicado
+reduce i funcion con acumulador y valor actual de iteracion .
+
+Diferencias entre may y filter y reduce.
+Reduce , necesita conocer el valor de todos los elementos de la secuencia,
+
+ */
+
+//combinaciones .
+const foo$ = Rx.Observable.of('h','e','l','o', 'w');
+//h.e.l.o
+const bar$ = Rx.Observable.interval(600);
+//x...x....x....x.....x..
+const baz$ = Rx.Observable.zip(foo$, bar$, (x, _ ) => x);
+
+const col = [1,2,3,4,5,6,7,8,9];
+const colTransformed = col.map(element => element *2);
+console.log(colTransformed);
+
+const colFiltered = col.filter(item => (item % 2));
+
+col = [
+    {id: 'x',otras:'foo'},
+    {id: 'y',otras:'bar'},
+    {id: 'z',otras:'baz'}
+];
+
+ const ReducedCol = col.reduce(
+   function(acc, curr)  {
+       //acc tiene la primera vez el valor inicial y el current el primer valor de la lista.
+      return acc[curr.id] = cur.otras;
+      //primera iteracion {'x': 'foo'}
+       //segunda  iteracion {
+       // 'x': 'foo',
+       // 'y': 'bar',
+       // }
+   }
+   ,{}
+);
+
+ const ReducedColInmutableInS5 = col.reduce(
+   function(acc, curr)  {
+       //es5 - inmutable.
+       const elemento = {};
+       elemento[curr.id]: curr.otras;
+       const obj = Object.assign({}, acc, curr);
+       return obj;
+   }
+   ,{}
+);
+
+ const ReducedColInmutableInS6 = col.reduce(
+   function(acc, curr)  {
+       const elemento {
+          [curr.id]: curr.otras;
+       }
+
+       return{...acc, ...elemento};
+   }
+   ,{}
+);
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 // {...0...9...8...7...6...5...4..3....2..1}
 const foo$ = Rx.Observable.interval(500);
 let bar$;
