@@ -10,6 +10,6 @@ $.ajax({
     url: "./js/autofoto/getImagesFilename.php",
     dataType: "json",
     success: function (data) {
-        $.each(data, renderSection);
+        data.forEach(renderSection);
     }
 });
