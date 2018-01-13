@@ -10,22 +10,25 @@ There's just more one thing: you can't use indexers. In other words, this is ill
 var itemInArray = movieLists[0];
 Furthermore, you're not allowed to use indexers in any of the remaining exercises unless you're implementing one of the five functions. There is a very good reason for this restriction, and that reason will eventually be explained. For now, you'll simply have to accept it on faith that this restriction serves a purpose. :-)
  */
-function ejercicio12() {
-    Array.prototype.concatAll = function () {
+window.onload = function ejercicio12() {
+    Array.prototype.concatAll = function() {
         var results = [];
-        this.forEach(function (subArray) {
-            // ------------ INSERT CODE HERE! ----------------------------
-            // Add all the items in each subArray to the results array.
-            // ------------ INSERT CODE HERE! ----------------------------
-            subArray.videos.forEach(
-                function (item) {
-                    results.push(item);
-                }
-            );
+        this.forEach(function(subArray) {
+            results.push.apply(results, subArray);
         });
 
         return results;
     };
+
+    Array.prototype.concatMap = function(projectionFunctionThatReturnsArray) {
+        return this.
+        map(function(item) {
+            return projectionFunctionThatReturnsArray(item);
+        }).
+        // apply the concatAll function to flatten the two-dimensional array
+        concatAll();
+    };
+
     var movieLists = [
         {
             name: "Instant Queue",
@@ -94,7 +97,16 @@ function ejercicio12() {
     //	 {"id": 70111470,"title": "Die Hard","boxart":"http://cdn-0.nflximg.com/images/2891/DieHard150.jpg" }
     // ];
 
-    return movieLists.concatAll() // Complete this expression!
+    console.log('movieList', movieLists);
+    var videos = movieLists.concatMap(function(item){});
+
+
+
+    return movieLists.concatMap(function(movieList) {
+        return movieList.videos.concatMap(function(boxarts){
+            return boxarts;
+        });
+    });
 
 }
 
