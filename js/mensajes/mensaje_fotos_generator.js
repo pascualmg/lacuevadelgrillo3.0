@@ -16,13 +16,10 @@ function loadFromDateObject(dateDTO) {
 
 loadFromDateObject(dateDTO);
 
-var ultimasOrPrimeras = (2017 == dateDTO.year) ? "últimas" : "primeras";
 
 $('#mensaje_fotos').prepend(
-    '<h2>Aquí están las ' +
-    ultimasOrPrimeras +
-    ' fotos de ' +
+    '<h2>Aquí están las últimas fotos de ' +
     dateDTO.year +
-    ' tras las últimas reformas , esperamos que os gusten!' +
+    ' ¡Os invitamos a verlas!' +
     '</h2>'
 );
